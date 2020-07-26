@@ -1,0 +1,8 @@
+[package]
+name = "NetworkClock"
+author = "Corecii"
+content_root = "NetworkClock"
+version = "0.1.0"
+
+[dependencies]
+Promise = { git = "https://github.com/evaera/roblox-lua-promise" }

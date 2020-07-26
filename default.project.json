@@ -1,0 +1,12 @@
+{
+  "name": "NetworkClock",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "NetworkClock": {
+        "$path": "NetworkClock"
+      }
+    }
+  }
+}
