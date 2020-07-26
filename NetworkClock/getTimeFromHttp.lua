@@ -53,7 +53,7 @@ local function getModeResultWithMinAccuracy(results)
 	return timestampResultMinAccuracy[mostCommonTimestamp]
 end
 
-local function getTimeFromHttp(urls, timeout, minResults) --> Promise<{time: number, accuracy: number}>
+local function getTimeFromHttp(urls, timeout, minResults) --> Promise<{time: number, accuracy: number, offset: number}>
 	timeout = timeout or 10
 	minResults = math.max(1, minResults or 3)
 
@@ -86,9 +86,14 @@ local function getTimeFromHttp(urls, timeout, minResults) --> Promise<{time: num
 		end
 
 		local modeResult = getModeResultWithMinAccuracy(results)
+
+		local unixTime = modeResult.timestamp + modeResult.rtt/2
+		local now = os.clock()
+		local offset = unixTime - now
 		resolve({
-			time = modeResult.timestamp + modeResult.rtt/2,
+			time = unixTime,
 			accuracy = modeResult.accuracy,
+			osset = offset,
 		})
 	end)
 end

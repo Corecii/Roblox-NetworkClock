@@ -103,9 +103,7 @@ function NetworkClock:_AttemptSync()
 	assert(syncPromise, "Bad timeSource")
 
 	return syncPromise:andThen(function(data)
-		local now = os.clock()
-		local offset = data.time - now
-		self.clock:TrySetOffset(offset, data.accuracy)
+		self.clock:TrySetOffset(data.offset, data.accuracy)
 	end)
 end
 

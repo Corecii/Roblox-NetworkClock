@@ -4,6 +4,7 @@ local function getTimeFromOsClock()
 	return Promise.resolve({
 		time = os.clock(),
 		accuracy = 0,
+		offsrt = 0,
 	})
 end
 
