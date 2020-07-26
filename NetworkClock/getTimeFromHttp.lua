@@ -67,11 +67,11 @@ local function getTimeFromHttp(urls, timeout, minResults) --> Promise<{time: num
 				end,
 				function(err)
 					if Promise.Error.isKind(err, Promise.Error.Kind.TimedOut) then
-						warn("[NetworkTime] Request to " .. url .. " timed out (" .. timeout .."s)")
+						warn("[NetworkClock] Request to " .. url .. " timed out (" .. timeout .."s)")
 					elseif tostring(err):lower():find(HTTP_DISABLED_STRING) then
-						warn("[NetworkTime] Http requests are disabled!")
+						warn("[NetworkClock] Http requests are disabled!")
 					else
-						warn("[NetworkTime] Request to " .. url .. " failed: " .. tostring(err))
+						warn("[NetworkClock] Request to " .. url .. " failed: " .. tostring(err))
 					end
 				end
 			)

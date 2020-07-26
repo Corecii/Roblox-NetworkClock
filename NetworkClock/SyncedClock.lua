@@ -48,13 +48,13 @@ function SyncedClock:GetOffset(now)
 end
 
 function SyncedClock:GetTime(now)
-	assert(self.offset, "[NetworkTime] Time not synced yet")
+	assert(self.offset, "[NetworkClock] Time not synced yet")
 	now = now or os.clock()
 	return now + self:GetOffset(now)
 end
 
 function SyncedClock:GetRawTime(now)
-	assert(self.offset, "[NetworkTime] Time not synced yet")
+	assert(self.offset, "[NetworkClock] Time not synced yet")
 	now = now or os.clock()
 	return now + self.offset
 end
