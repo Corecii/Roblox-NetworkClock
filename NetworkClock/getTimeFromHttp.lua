@@ -93,7 +93,7 @@ local function getTimeFromHttp(urls, timeout, minResults) --> Promise<{time: num
 		resolve({
 			time = unixTime,
 			accuracy = modeResult.accuracy,
-			osset = offset,
+			offset = offset,
 		})
 	end)
 end
